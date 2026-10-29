@@ -17,5 +17,9 @@
 ## Log Commit
 
 ### Hari 1
-- **Pagi:** `feat: inisialisasi tampilan dasar profil` (Bikin layout awal profil)
-- **Sore:** `refactor: pemisahan komponen foto dan detail profil` (Extract widget avatar dan info)
+- **1:** `feat: inisialisasi tampilan dasar profil` (Bikin layout awal profil)
+- **2:** `refactor: pemisahan komponen foto dan detail profil` (Extract widget avatar dan info)
+
+### Hari 2
+- **1:** `feat: integrasi section statistik di profil rafa` (Tambah komponen statistik)[cite: 28, 30]
+- **2:** `refactor: ekstraksi komponen statistik ke ProfileStats dan StatItem` (Extract widget statistik)[cite: 29, 30]

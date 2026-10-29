@@ -6,24 +6,59 @@ class ProfilePage extends StatelessWidget {
   final String userName = 'Rafa Fathur Rohman';
   final String role = 'Mahasiswa Teknik Informatika - Mobile Developer';
 
+  // Data projek 
+  final List<String> experiences = const [
+    'Project 1 - Membuat Website Ecommerce Penjualan Sendal Pada Toko JIMI',
+    'Project 2 - Mmebuat Website Ecommerce Penjualan Hijab Pada Brand BYDIIV',
+    'Project Tugas - Website Penyewaan Buku Perpus',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Profil Pengguna'),
+        title: const Text('Profile Pengguna'),
         centerTitle: true,
         backgroundColor: Colors.blueAccent,
         foregroundColor: Colors.white,
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0), // Tambahkan Padding di sini
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const ProfileAvatar(),
             const SizedBox(height: 16),
             ProfileInfo(userName: userName, role: role),
             const SizedBox(height: 24),
-            const ProfileStats(), // Di-extract ke widget ProfileStats
+            const ProfileStats(),
+            const SizedBox(height: 24),
+            
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Daftar Project',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const Divider(),
+            
+
+            // ListView.builder + Expanded
+            Expanded(
+              child: ListView.builder(
+                itemCount: experiences.length,
+                itemBuilder: (context, index) {
+                  return Card(
+                    elevation: 2,
+                    margin: const EdgeInsets.symmetric(vertical: 6),
+                    child: ListTile(
+                      leading: const Icon(Icons.code, color: Colors.blueAccent),
+                      title: Text(experiences[index]),
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
