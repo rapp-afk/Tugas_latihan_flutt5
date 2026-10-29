@@ -23,3 +23,7 @@
 ### Hari 2
 - **1:** `feat: integrasi section statistik di profil rafa` (Tambah komponen statistik)[cite: 28, 30]
 - **2:** `refactor: ekstraksi komponen statistik ke ProfileStats dan StatItem` (Extract widget statistik)[cite: 29, 30]
+
+### Hari 3
+- **1:** `feat: implementasi listview builder untuk daftar project` (Bikin list project)
+- **2:** `refactor: ekstraksi item daftar project ke widget ExperienceCard` (Extract widget card)
