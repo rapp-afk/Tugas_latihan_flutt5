@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
-  final String userName = 'Rafa Fathur Rohman';
-  final String role = 'Mahasiswa Teknik Informatika - Mobile Developer';
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
 
-  // Data projek 
+class _ProfilePageState extends State<ProfilePage> {
+  String userName = 'Rafa Fathur Rohman';
+  String role = 'Mahasiswa Teknik Informatika - Mobile Developer';
+
   final List<String> experiences = const [
     'Project 1 - Membuat Website Ecommerce Penjualan Sendal Pada Toko JIMI',
     'Project 2 - Mmebuat Website Ecommerce Penjualan Hijab Pada Brand BYDIIV',
