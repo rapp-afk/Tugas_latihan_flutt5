@@ -27,3 +27,7 @@
 ### Hari 3
 - **1:** `feat: implementasi listview builder untuk daftar project` (Bikin list project)
 - **2:** `refactor: ekstraksi item daftar project ke widget ExperienceCard` (Extract widget card)
+
+### Hari 4
+- **1** `refactor: migrasi profile page ke statefulwidget untuk penanganan state dinamis` (Ubah ke StatefulWidget)
+- **2** `feat: penambahan modal dialog edit profil dengan integrasi setstate` (Fitur dialog edit profil)

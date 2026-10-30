@@ -17,6 +17,50 @@ class _ProfilePageState extends State<ProfilePage> {
     'Project Tugas - Website Penyewaan Buku Perpus',
   ];
 
+  // Fungsi Dialog Edit Profil Rafa
+  void _openEditProfileModal() {
+    final nameInput = TextEditingController(text: userName);
+    final roleInput = TextEditingController(text: role);
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Pembaruan Profil'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                controller: nameInput,
+                decoration: const InputDecoration(labelText: 'Nama Pengguna'),
+              ),
+              TextField(
+                controller: roleInput,
+                decoration: const InputDecoration(labelText: 'Status / Role'),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Batal'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  userName = nameInput.text;
+                  role = roleInput.text;
+                });
+                Navigator.pop(context);
+              },
+              child: const Text('Simpan Perubahan'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,16 +71,24 @@ class _ProfilePageState extends State<ProfilePage> {
         foregroundColor: Colors.white,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0), // Tambahkan Padding di sini
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             const ProfileAvatar(),
             const SizedBox(height: 16),
             ProfileInfo(userName: userName, role: role),
+            const SizedBox(height: 12),
+            
+            OutlinedButton.icon(
+              onPressed: _openEditProfileModal,
+              icon: const Icon(Icons.edit_note, size: 20),
+              label: const Text('Ubah Profil'),
+            ),
+
             const SizedBox(height: 24),
             const ProfileStats(),
             const SizedBox(height: 24),
-            
+
             const Align(
               alignment: Alignment.centerLeft,
               child: Text(
@@ -46,8 +98,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             const Divider(),
 
-            // ListView.builder + Expanded
-           Expanded(
+            Expanded(
               child: ListView.builder(
                 itemCount: experiences.length,
                 itemBuilder: (context, index) {
